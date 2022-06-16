@@ -16,3 +16,6 @@ Infos zum ESG-Score
 https://finance.yahoo.com/quote/V/sustainability/
 
 https://connect.sustainalytics.com/inv-sustainable-finance-disclosure-regulation-solutions
+
+Infos zur Investition nach muslimischen Glaubensrichtlinien
+https://www.businessinsider.de/wirtschaft/muslime-an-der-boerse-was-ist-erlaubt-und-was-nicht-2017-2/
