@@ -35,7 +35,7 @@ for i in sp500symbols:
   
       print(str(aktien_daten.ticker))
       esg_data = esg_data.append(temp)
-  except IndexError:
+  except:
           pass
 
 esg_data.to_pickle('esg')
