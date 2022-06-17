@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<head>
+    <title>HTML Formular</title>
+    <style>
+        label{min-width:100px;display:inline-block;}
+    </style>
+</head>
+<body>
+<img src="{{url_for('static', filename='logo.jpg')}}" align="middle" />
+    <form method="get" action="\auswertung">
+Welche Geschäftsbereiche möchten sie von ihren Investitionen ausschließen?
+
+<br/>
+<br/>
+<br/>
+		  <input type="checkbox" id="alcoholic" name="alc" value="False">
+		  <label for="alc">Alkohol</label><br>
+		  <input type="checkbox" id="animal" name="animal" value="False">
+		  <label for="animal">Tierversuche</label><br/>
+		  <input type="checkbox" id="tobacco" name="tobacco" value="False">
+		  <label for="alc">Tabak</label><br/>
+		  <input type="checkbox" id="weapons" name="weapons" value="False">
+		  <label for="alc">Waffen</label><br>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+		   <label for="risikowert">Wie hoch ist ihre Risikobereitschaft auf einer Skala von 1 bis 10?</label>
+        <br/>
+  <input type="number" id="risk" name="risk" min="1" max="10" step="1" value="5">
+
+      <br/>
+      <br/>
+		   <label for="esgwert">Wie wichtig ist Ihnen der ESG-Score auf einer Skala von 1 bis 10?</label>
+        <br/>
+  <input type="number" id="esg" name="esg" min="1" max="10" step="1" value="5">
+
+      <br/>
+      <br/>
+		   <label for="social">Wie wichtig ist Ihnen der Social-Score auf einer Skala von 1 bis 10?</label>
+        <br/>
+  <input type="number" id="social" name="social" min="1" max="10" step="1" value="5">
+
+        <br/>
+        <br/>
+        <input type="submit" value="Absenden"/>
+   </a>
+</form>
+</body>
+</html>
