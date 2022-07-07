@@ -2,8 +2,7 @@ from tkinter import W
 from flask import Flask, request, render_template, redirect, url_for
 import pandas as pd
 import yfinance as yf
-
-
+from main_backend import get_recommendation as get_rec
 # create the Flask app
 app = Flask(__name__)
 
@@ -17,7 +16,7 @@ def query():
 
 @app.route('/auswertung')
 def form_example():
-    df_complete=pd.read_pickle("./FintechFinance/df_esg_final")
+    df_complete=pd.read_pickle("./Data/df_esg_final")
     animal_var=request.args.get('animal')
     tobacco_var=request.args.get('tobacco')
     alcohol_var=request.args.get('alc')
@@ -41,22 +40,28 @@ def form_example():
       df_filtered=df_filtered[(df_filtered['smallArms']==False)&(df_filtered['controversialWeapons']==False)] 
     else:
       pass
+
+
     df_filtered=df_filtered[(df_filtered['totalEsg']<esg_schwellwert)]
     df_filtered=df_filtered[(df_filtered['beta']<beta_schwellwert)]
     df_filtered=df_filtered[(df_filtered['socialScore']<social_schwellwert)]
-    aktie1=df_filtered['long_name'][0]
-    aktie2=df_filtered['long_name'][1]
-    aktie3=df_filtered['long_name'][2]
-    preis1=df_filtered['last_price'][0]
-    preis2=df_filtered['last_price'][1]
-    preis3=df_filtered['last_price'][2]
-    esg1=df_filtered['totalEsg'][0]
-    esg2=df_filtered['totalEsg'][1]
-    esg3=df_filtered['totalEsg'][2]
-    beta1=df_filtered['beta'][0]
-    beta2=df_filtered['beta'][1]
-    beta3=df_filtered['beta'][2]
-    print(df_filtered)
+# hier sentimentanalyse
+    df_rec=get_rec(df_filtered)
+
+
+    aktie1=df_rec['long_name'][0]
+    aktie2=df_rec['long_name'][1]
+    aktie3=df_rec['long_name'][2]
+    preis1=df_rec['last_price'][0]
+    preis2=df_rec['last_price'][1]
+    preis3=df_rec['last_price'][2]
+    esg1=df_rec['totalEsg'][0]
+    esg2=df_rec['totalEsg'][1]
+    esg3=df_rec['totalEsg'][2]
+    beta1=df_rec['beta'][0]
+    beta2=df_rec['beta'][1]
+    beta3=df_rec['beta'][2]
+    print(df_rec)
     print("Eingabe Tiere",animal_var)
     print("Eingabe Alk",alcohol_var)
     
