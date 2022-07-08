@@ -14,6 +14,10 @@ def query_test():
 def query():
     return render_template("fragebogen.html")
 
+@app.route('/info')
+def info():
+    return render_template("info.html")
+
 @app.route('/auswertung')
 def form_example():
     df_complete=pd.read_pickle("./Data/df_esg_final")
@@ -21,7 +25,7 @@ def form_example():
     tobacco_var=request.args.get('tobacco')
     alcohol_var=request.args.get('alc')
     weapons_var=request.args.get('weapons')
-    risk_var=int(request.args.get('risk'))
+    risk_var=int(request.args.get('risk1'))
     esg_var=int(request.args.get('esg'))
     social_var=int(request.args.get('social'))
     beta_schwellwert=(df_complete['beta'].max()-df_complete['beta'].min())/10*risk_var
@@ -46,25 +50,28 @@ def form_example():
     df_filtered=df_filtered[(df_filtered['beta']<beta_schwellwert)]
     df_filtered=df_filtered[(df_filtered['socialScore']<social_schwellwert)]
 # hier sentimentanalyse
-    df_rec=get_rec(df_filtered)
+    try:
+        df_rec=get_rec(df_filtered)
 
 
-    aktie1=df_rec['long_name'][0]
-    aktie2=df_rec['long_name'][1]
-    aktie3=df_rec['long_name'][2]
-    preis1=df_rec['last_price'][0]
-    preis2=df_rec['last_price'][1]
-    preis3=df_rec['last_price'][2]
-    esg1=df_rec['totalEsg'][0]
-    esg2=df_rec['totalEsg'][1]
-    esg3=df_rec['totalEsg'][2]
-    beta1=df_rec['beta'][0]
-    beta2=df_rec['beta'][1]
-    beta3=df_rec['beta'][2]
-    print(df_rec)
-    print("Eingabe Tiere",animal_var)
-    print("Eingabe Alk",alcohol_var)
-    
+        aktie1=df_rec['long_name'][0]
+        aktie2=df_rec['long_name'][1]
+        aktie3=df_rec['long_name'][2]
+        preis1=df_rec['last_price'][0]
+        preis2=df_rec['last_price'][1]
+        preis3=df_rec['last_price'][2]
+        esg1=df_rec['totalEsg'][0]
+        esg2=df_rec['totalEsg'][1]
+        esg3=df_rec['totalEsg'][2]
+        beta1=df_rec['beta'][0]
+        beta2=df_rec['beta'][1]
+        beta3=df_rec['beta'][2]
+        print(df_rec)
+        print("Eingabe Tiere",animal_var)
+        print("Eingabe Alk",alcohol_var)
+    except:
+        return render_template("error.html")
+        
     
 
 

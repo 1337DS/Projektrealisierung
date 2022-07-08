@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8">
 <head>
-    <title>HTML Formular</title>
+    <title>Anlageempfehlung</title>
     <style>
         label{min-width:100px;display:inline-block;}
     </style>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
 <img src="{{url_for('static', filename='logo.jpg')}}" align="middle" />
@@ -16,7 +18,7 @@
 Hier ist ihre KI-basierte premium Auswertung die Sie unbedingt befolgen sollten:
 <br/>
 <br/>
-
+<a href={{url_for('info')}}>Hier</a> finden Sie Informationen zum ESG-Score und Beta.
 <br/>
 Aktie 1:
   
@@ -25,6 +27,10 @@ Aktie 1:
 <br/>
 ESG-Score:
 "{{ esg1}}"
+<br/>
+</div>
+
+</div>
 <br/>
 Beta:
 "{{ beta1}}"
