@@ -6,7 +6,13 @@ AI-based Stock recommendation tool that analyses individual preferences and give
 ## Vision
 Creating custom-tailored investment advice based on personal needs of clients
 
-Spezifikationen:
+## Anleitung
+1. Python installieren und alle in requirements.txt aufgeführten Bibliotheken
+2. app.py ausführen
+3. localhost:5000 im Browser ausführen
+
+ 
+## Spezifikationen:
 
 Flask für Backend der Webseiten
 yfinance Bibliothek zum Auslesen von ESG-Daten der S&P 500 Aktien
