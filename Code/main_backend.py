@@ -8,7 +8,9 @@ def get_recommendation(path_to_stocks, sample=10):
     #print(stocks)
     stocks.dropna(inplace=True)
     
-    stock_sample = stocks.sample(n=sample)
+    stock_sample = stocks[:9]
+    print('stock selection stage_1')
+    print(stock_sample)
     stock_sample.reset_index(drop=True, inplace=True)
     stock_sample['sentiment'] = 0.0
     for i in range(len(stock_sample)):

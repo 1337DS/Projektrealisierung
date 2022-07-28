@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>(document).ready(function(){
+ $('#id_fragebogen').on('submit', function(event){
+   event.preventDefault();
+   var count_error = 0;
+<! -- Hier könnten noch Fehlerabfragen erfolgen -->	
+   if(count_error == 0)
+   {
+    $.ajax({
+   url:"/auswertung",
+   method:"GET",
+   beforeSend:function()
+   {
+   },
+   success:function(data)
+   { 
+    var percentage = 0;
+  
+    var timer = setInterval(function(){
+     percentage = percentage + 20;
+     progress_bar_process(percentage, timer,data);
+    }, 1000);
+   }
+  })
+   }
+   else
+   {
+    return false;
+   }
+     
+  });
+    
+  function progress_bar_process(percentage, timer,data)
+  {
+ $('.progress-bar').css('width', percentage + '%');
+ if(percentage > 100)
+ {
+  clearInterval(timer);
+  $('#sample_form')[0].reset();
+  $('#process').css('display', 'none');
+  $('.progress-bar').css('width', '0%');
+  $('#save').attr('disabled', false);
+  $('#success_message').html(data);
+  setTimeout(function(){
+   $('#success_message').html('');
+  }, 5000);
+ }
+  }
+    
+ });
+</script><meta charset="UTF-8">
 	<title>Fintech Finance
 </title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
@@ -30,10 +82,9 @@
         </div>
 
 <br/>
-    <form method="get" action="\auswertung">
-Welche Geschäftsbereiche möchten sie von ihren Investitionen ausschließen?
+    <form method="get" id="id_fragebogen" action="\auswertung" >
+<div style="margin-left:50px;" ><label for="risikowert">Welche Geschäftsbereiche möchten sie von ihren Investitionen ausschließen?
 
-<br/>
 <br/>
 <br/>
 		  <input type="checkbox" id="alcoholic" name="alc" value="False">
@@ -44,11 +95,9 @@ Welche Geschäftsbereiche möchten sie von ihren Investitionen ausschließen?
 		  <label for="alc">Tabak</label><br/>
 		  <input type="checkbox" id="weapons" name="weapons" value="False">
 		  <label for="alc">Waffen</label><br>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+<hr>
 		   <label for="risikowert">Wie lange ist ihr vorraussichtlicher Anlagehorizont? <br/>
+      <br/>
 1: weniger als 1 Jahr
       <br/>
 
@@ -63,45 +112,46 @@ Welche Geschäftsbereiche möchten sie von ihren Investitionen ausschließen?
   <input type="number" id="risk1" name="risk1" min="1" max="5" step="1" value="1">
 
       <br/>
-      <br/>
-      <br/>
+<hr>
 		   <label for="risikowert">Wie sehr stimmen Sie der Aussage zu: (1 - stimme kaum zu, 10- stimme voll zu) <br/>
 Bei kleinen oder kurzfristigen Verlusten bleibe ich ruhig.</label>
         <br/>
   <input type="number" id="risk2" name="risk2" min="1" max="10" step="1" value="5">
 
-      <br/>
-      <br/>
-      <br/>
+<hr>
 		   <label for="risikowert">Als wie risikofreudig würden Sie sich generell beschreiben? (1- gar nicht , 10- sehr risikofreudig)
 </label>
         <br/>
   <input type="number" id="risk3" name="risk3" min="1" max="10" step="1" value="5">
-
-      <br/>
-      <br/>
+<hr>
 		   <label for="risikowert">Wie viel Risiko würden Sie für eine sehr hohe Rendite in Kauf nehmen? (1- gar keines, 10- volles Risiko)</label>
         <br/>
   <input type="number" id="risk4" name="risk4" min="1" max="10" step="1" value="5">
 
-      <br/>
-      <br/>
+<hr>
 		   <label for="esgwert">Wie wichtig ist Ihnen ökologische Nachhaltigkeit (Klimaneutralität, Ressourcenschonung, Rücksicht auf Artenschutz)? (1- unwichtig, 10- sehr wichtig) </label>
         <br/>
   <input type="number" id="esg" name="esg" min="1" max="10" step="1" value="5">
 
-      <br/>
-      <br/>
+<hr>
 		   <label for="social">Wie wichtig ist Ihnen die soziale Firmenauslegung (Sicherheit, Gesundheit, Mitarbeiter)? (1- unwichtig, 10- sehr wichtig)</label>
         <br/>
   <input type="number" id="social" name="social" min="1" max="10" step="1" value="5">
 
+<hr>
         <br/>
-        <br/>
-        <input type="submit" value="Absenden"/>
+        <input type="submit" value="Absenden" onclick="alert('Die Auswertung wurde gestartet. Dies kann einige Minuten dauern')"/>
    </a>
-</form>
-
+				<script>
+				document.getElementById("id_fragebogen").onsubmit("click", function() {
+				  alert("Ihre Auswertung wurde gestartet. Dies kann einen moment dauern.");
+				});
+				</script>
+</div></form>
+<div class="form-group" id="process" style="display:none;">
+        <div class="progress">
+       <div class="progress-bar progress-bar-striped active bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=""></div>
+      Progress</div>
 </div>
 			<footer>
 				<p>&copy 2022 Fintech Finance ltd.</p>

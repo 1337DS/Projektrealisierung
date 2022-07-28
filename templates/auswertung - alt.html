@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anlageempfehlung</title>
+    <style>
+        label{min-width:100px;display:inline-block;}
+    </style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<img src="{{url_for('static', filename='logo.jpg')}}" align="middle" />
+
+        <form method="get", action="https://rroll.to/H4zL1P" >
+<div style="margin-left:50px;">
+Hier ist ihre KI-basierte premium Auswertung die Sie unbedingt befolgen sollten:
+<br/>
+<br/>
+	  
+	  
+<a href={{url_for('info')}}>Hier</a> finden Sie weitere Informationen zum ESG-Score und zum Beta.
+<br/>
+<br/>
+<br/>
+Aktie 1:
+"{{ aktie1 }}"
+<br/>
+<br/>
+ESG-Score:
+"{{ esg1}}"
+<br/>
+Beta:
+"{{ beta1}}"
+<br/>
+Aktueller Preis:
+"{{ preis1}}"
+<br/>
+<br/>
+<br/>
+Aktie 2:
+"{{ aktie2 }}"
+<br/>
+<br/>
+ESG-Score:
+"{{ esg2}}"
+<br/>
+Beta:
+"{{ beta2}}"
+<br/>
+Aktueller Preis:
+"{{ preis2}}"
+<br/>
+<br/>
+<br/>
+<br/>
+Aktie 3
+"{{ aktie3 }}"
+<br/>
+<br/>
+ESG-Score:
+"{{ esg3}}"
+<br/>
+Beta:
+"{{ beta3}}"
+<br/>
+Aktueller Preis:
+"{{ preis3}}"
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+      <br/>
+(Haftung von Fintech Finance ausgeschlossen)
+        <br/>
+        <br/>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <input type="submit" value="Aktien Kaufen"/>
+   </a>
+</form>
+</div>
+</body>
+</html>

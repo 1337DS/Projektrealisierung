@@ -8,14 +8,17 @@ def get_recommendation(path_to_stocks, sample=10):
     #print(stocks)
     stocks.dropna(inplace=True)
     
-    stock_sample = stocks.sample(n=sample)
+    stock_sample = stocks[:9]
     stock_sample.reset_index(drop=True, inplace=True)
     stock_sample['sentiment'] = 0.0
+    print('stock selection stage_1')
+    print(stock_sample)
     for i in range(len(stock_sample)):
         stock_name = stock_sample['long_name'].iloc[i]
         print(stock_name)
         sentiment = get_mean_sentiment(generate_sentiment_information_for_all_tweets(clean_tweets(get_tweets_by_searchquery(f'{stock_name}', 300), 'en')))
         stock_sample.at[i, 'sentiment'] = sentiment
+    stock_sample=stock_sample.sort_values(by=['beta'], ascending=False)
     stock_sample.to_pickle('Data/Stock/stock_recommendation.pkl')
     print(stock_sample)
     return stock_sample

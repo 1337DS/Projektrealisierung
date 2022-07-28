@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-<head>
     <title>Anlageempfehlung</title>
     <style>
         label{min-width:100px;display:inline-block;}
     </style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
@@ -14,23 +14,21 @@
 <img src="{{url_for('static', filename='logo.jpg')}}" align="middle" />
 
         <form method="get", action="https://rroll.to/H4zL1P" >
-
+<div style="margin-left:50px;">
 Hier ist ihre KI-basierte premium Auswertung die Sie unbedingt befolgen sollten:
 <br/>
 <br/>
-<a href={{url_for('info')}}>Hier</a> finden Sie Informationen zum ESG-Score und Beta.
+(Haftung von Fintech Finance ausgeschlossen)
+
+<br/>
+<br/>
 <br/>
 Aktie 1:
-  
 "{{ aktie1 }}"
 <br/>
 <br/>
 ESG-Score:
 "{{ esg1}}"
-<br/>
-</div>
-
-</div>
 <br/>
 Beta:
 "{{ beta1}}"
@@ -70,16 +68,30 @@ Aktueller Preis:
 "{{ preis3}}"
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-      <br/>
-(Haftung von Fintech Finance ausgeschlossen)
-        <br/>
-        <br/>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <input type="submit" value="Aktien Kaufen"/>
    </a>
+<br/>
+<br/>
+Als Kennzahlen um die für ihre Bedürfnisse passenden Aktien zu finden wurden die im Börsenhandel verwendeten Kennzahlen ESG-Score und Beta verwendet.
+<div class="col-md-12", style="display:inline-block">
+    <div class="info">
+      <i class="icon-info-sign" style="display:inline-block">
+    </i>
+	  <span class="extra-info">
+<p>Unter ESG versteht man die Berücksichtigung von Kriterien aus den Bereich Umwelt (Environmental), Soziales (Social) und verantwortungsvolle Unternehmensführung (Governance).</br> Der ESG-Score bewegt sich auf einer Skala von 0 - 100.</p>
+<p>Unter Beta versteht man die Empfindlichkeit des Aktienkurses auf eine Veränderung des Gesamtmarkts. Ein Aktien-Beta von Eins bedeutet, dass der Aktienkurs genau gleich reagiert wie der Markt. </br>Mit dem Beta lässt sich somit das Risiko der Aktie besser einschätzen.</p>
+      </span>
+	  
+	  
+    </div>
+</div>
+<br/>
+<br/>
+      <br/>
+        <br/>
+        <br/>
 </form>
+</div>
 </body>
 </html>

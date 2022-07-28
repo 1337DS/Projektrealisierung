@@ -1,0 +1,290 @@
+*{
+margin: 0px;
+  transition: all .2s ease;
+}
+
+body
+{font-family: Arial, sans-serif;}
+
+.inhalt
+{margin-left: 50px;
+padding-left: 50px;}
+
+h1
+{
+	color: #FFFF00;
+	background-color: #0099FF;
+	font-size: 48px;
+	font-family: Arial, sans-serif;
+	font-style: italic;
+	/*border-bottom: 12px solid blue*/ ;
+	text-align: center;
+
+	transition: all 0.5s ease-in-out;
+
+}
+h1:hover{
+	/*transform: rotate(180deg);*/
+
+
+}
+h2 { color:gray;
+	color: #0099FF;
+	margin: 10px 5px;
+
+#totop {
+	bottom: 40px;
+	right: 40px;
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	background-color: red;
+
+}
+
+}
+p {
+	text-align: justify;
+	margin: 10px 40px;
+}
+
+a{
+	margin: 0px 10px;
+}
+
+nav {
+	background-color: rgba(0,0,0,0.2);
+	padding: 10px 40px 30px 20px;
+	text-align: center;
+	margin-bottom: 20px;
+
+}
+
+
+	nav a {
+		margin: 15px 30px 10px 0px;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: all 1s ease-in-out;
+
+
+
+}
+
+nav a:hover {
+			color: #000000;
+
+}
+/*=== Wrapper ===*/
+#intro: before{
+	content: "Testtext";
+	color:red;
+	font-size: 24px;
+	font-family: 'fontawesome';
+	content: "\"
+}
+
+<!-- setzt text vor die id im html-->
+#wrapper {
+	background-color: #e1e1e1;
+	width: 80%;
+	margin: 25px auto;
+}
+/*
+#titelbild{
+	width: auto;
+	height: 400px;
+	margin: 0 auto;
+	display: block;
+}
+*/
+#backgroundimage{
+	width: 100%;
+	height: 400px;
+	background-color: rgba(0,0,0,0.5);
+	background-image: url("sonnenuntergang.jpg");
+	background-position: center center;
+	margin: 20px 0px 25px 0;
+}
+
+#introtextoben{
+	color:#ffffff;
+	position: absolute;
+	background-color: rgba(0,0,0,0.5);
+	top: 180px;
+	left: 40px;
+	border: 2px solid #000000;
+	box-shadow:  -5px 2px 8px #000000;
+	padding: 15px;
+	opacity: 0.5;
+	border-radius: 5%;
+	width: 300px;
+	height: 100px;
+	text-align: center;
+	padding: 10px 0;
+}
+
+
+#introtext {
+color:#ffffff;
+position: relative;
+background-color: rgba(0,0,0,0.5);
+bottom: 0px;
+left: 0px;
+padding: 15px;
+opacity: 0.5;
+}
+
+#introtext:hover {
+	opacity: 1;
+}
+
+
+/* === Footer === */
+
+footer {
+	background-color: cornflowerblue;
+	text-align: center;
+}
+
+footer p {
+	text-align: center;
+	font-size: 10px;
+}
+
+footer a {
+	color: #ffffff;
+	font-size: 13px;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+#wrapper #titelbilder img {
+		display: none;
+		width: 100%;
+		height: auto;
+	}
+	@media(min-width: 0px) AND (max-width: 767px) {
+		#titelklein {
+			display: inline!important;
+		}
+	}
+	@media(min-width: 768px) AND (max-width: 1024px) {
+		#titelmittel {
+			display: inline!important;
+		}
+	}
+	@media(min-width: 1025px) {
+			#titelgross {
+				display: inline!important;
+		}
+}
+#wrapper #introimages img {
+		height: 50px;
+		width: auto;
+	}
+
+dl {
+	background-color: #B4C7E7;
+	margin-top: 20px;
+	}
+dl dt{
+	color: black;
+	font-weight: bold;
+	display: inline-block;
+	width: 20%;
+}
+dl dd{
+	color:black;
+	font-weight: normal;
+	display: inline-block;
+	width: 79%;
+}
+
+/*Menüleiste Restaurant*/
+#menueliste ul {
+	padding: 0px 0px 0px 20%;
+
+}
+#menueliste ul li{
+	float: left;
+	list-style: none;
+	padding-right: 8px;
+	padding-bottom: 2px;
+	position: relative;
+}
+
+#submenu {
+	padding: 0px !important;
+	width: 250px;
+	height: 90px;
+	background-color: #CCCCCC;
+	position: absolute;
+	display: none;
+	top:20px;
+	left: -11px;
+	border-top: 1x solid #ffffff;
+}
+#menueliste ul li:hover ul{
+	color: red;
+	display: block;
+	position: relative;
+}
+#submenu li {
+	width: 100%;
+	text-align: left;
+	padding: 10px 10px 0 0;
+	left: 0;
+}
+
+#speisekarte{
+	background-color: cornflowerblue;
+	border-collapse: collapse;
+	width: 60%;
+	text-align: center;
+	margin: 25px auto;
+	border: 1px solid black;
+}
+
+#speisekarte td{
+	border: 1px solid black;
+
+}
+#speisekarte thead{
+	background-color: #a1a1a1
+}
+
+<script>
+document.getElementById("myBtn").addEventListener("click", function() {
+  alert("Hello World!");
+});
+</script>
+
+.extra-info {
+  display: none;
+  line-height: 30px;
+  font-size: 12px;
+	position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.info:hover .extra-info {
+  display: block;
+}
+
+.info {
+  font-size: 20px;
+  padding-left: 5px;
+  width: 20px;
+  border-radius: 15px;
+}
+
+.info:hover {
+  background-color: white;
+  padding: 0 0 0 5px;
+  width: 315px;
+  text-align: left !important;
+}
